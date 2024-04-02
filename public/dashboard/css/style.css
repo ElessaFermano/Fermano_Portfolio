@@ -1,0 +1,72 @@
+body{
+  background-image: url("bg.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.text{
+  font-size: 40px;
+  padding: 50px;
+  padding-top: 50px;
+  color: #209934;
+  text-align: left;
+  padding-bottom: 100px;
+  
+}
+
+.h{
+  text-shadow: 5px 5px black;
+ 
+}
+.button {
+  background-color: #319463; 
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+ 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;  
+  transition-duration: 0.4s;
+  text-align: left;
+ 
+}
+.button:hover {
+  background-color: rgb(160, 194, 67); 
+  color: white;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #515153;
+}
+ul {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+.h:hover {
+  color: rgb(57, 193, 44); 
+  transition: color 0.3s ease;
+  
+}
