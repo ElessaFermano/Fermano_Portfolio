@@ -2,63 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seminar;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class SeminarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(): View
     {
-        //
+        $seminar = seminar::all();
+        return view ('seminar.index')->with('seminar', $seminar);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+ 
+    public function create(): View
     {
-        //
+        return view('seminar.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+  
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $input = $request->all();
+        seminar::create($input);
+        return redirect('seminar')->with('flash_message', 'Information Addedd!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(string $id): View
     {
-        //
+        $seminar = seminar::find($id);
+        return view('seminar.show')->with('seminar', $seminar);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(string $id): View
     {
-        //
+        $seminar = seminar::find($id);
+        return view('seminar.edit')->with('seminar', $seminar);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $seminar = seminar::find($id);
+        $input = $request->all();
+        $seminar->update($input);
+        return redirect('seminar')->with('flash_message', 'Information Updated!');  
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    
+    public function destroy(string $id): RedirectResponse
     {
-        //
+        seminar::destroy($id);
+        return redirect('seminar')->with('flash_message', 'Information deleted!'); 
     }
 }

@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="h">ABOUT PAGE</h2>
+                    <h2 class="h">CONTACTS PAGE</h2>
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/home') }}" class="button" title="Back to Dashboard">
@@ -22,31 +22,33 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Birthdate</th>
-                                    <th>Address</th>
-                                    <th>Zipcode</th>
+                                    <th>Phone</th>
+                                    <th>Facebook</th>
                                     <th>Email</th>
-                                    <th>Age</th>
+                                    <th>Linkedin</th>
+                                    
                                     <th>Actions</th>
                                 </tr>
                          
-                                @foreach($about as $item)
+                                @foreach($contact as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->date_of_birth }}</td>
-                                        <td>{{ $item->address }}</td>
-                                        <td>{{ $item->zipcode }}</td>
+                                        <td>{{ $item->phone }}</td>
+                                        <td> <a href="{{$item->facebook}}"  target="_blank">{{ $item->facebook}}</a></td>
                                         <td>{{ $item->email }}</td>
-                                        <td>{{ $item->age }}</td>
+                                        <td>{{ $item->linkedin }}</td>
+                                        
                                         
  
                                         <td>
-                                            <!-- <a href="{{ url('/about/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a> -->
-                                            <a href="{{ url('/about/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/contact/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/contact/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
-                                           
+                                            <form method="POST" action="{{ url('/contact' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="delete" title="Delete Info" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -54,8 +56,8 @@
                             </table>
                         </div>
                         <br>
-                       
-                        <!-- <a href="{{ url('/about/create') }}" class="button2" title="Add New Info">
+<!--                        
+                        <a href="{{ url('/contact/create') }}" class="button2" title="Add New Info">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a> -->
                     </div>
@@ -131,21 +133,42 @@
             color: hotpink;
             transition-duration: 1s;
         }
-      
+      .view{
+        border: 2px;
+        border-style: solid;
+        border-radius: 5px;
+        color: #7b5063;
+        font-size: 10px;
+        background-color:#f3d5b5 ;
+      }
+      .view:hover{
+        color: #fb6f92;
+        transition-duration: 1s;
+      }
       .edit{
         border: 2px;
         border-style: solid;
         border-radius: 5px;
         color: #7b5063;
-        font-size: 15px;
+        font-size: 10px;
         background-color:#f3d5b5 ;
-        padding: 2px;
       }
       .edit:hover{
         color:#fb6f92 ;
         transition-duration: 1s;
       }
-     
+      .delete{
+        border: 2px;
+        border-style: solid;
+        border-radius: 5px;
+        color: #7b5063;
+        font-size: 10px;
+        background-color:#f3d5b5 ;
+      }
+      .delete:hover{
+        color: #fb6f92;
+        transition-duration: 1s;
+      }
       td{
         padding: 0;
       }

@@ -2,63 +2,59 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Blog;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(): View
     {
-        //
+        $blog = Blog::all();
+        return view ('blog.index')->with('blog', $blog);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+ 
+    public function create(): View
     {
-        //
+        return view('blog.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+  
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $input = $request->all();
+        Blog::create($input);
+        return redirect('blog')->with('flash_message', 'Information Addedd!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(string $id): View
     {
-        //
+        $blog = Blog::find($id);
+        return view('blog.show')->with('blog', $blog);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(string $id): View
     {
-        //
+        $blog = Blog::find($id);
+        return view('blog.edit')->with('blog', $blog);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $blog = Blog::find($id);
+        $input = $request->all();
+        $blog->update($input);
+        return redirect('blog')->with('flash_message', 'Information Updated!');  
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    
+    public function destroy(string $id): RedirectResponse
     {
-        //
+        Blog::destroy($id);
+        return redirect('blog')->with('flash_message', 'Information deleted!'); 
     }
 }

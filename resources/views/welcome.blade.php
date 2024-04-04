@@ -60,7 +60,7 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Educational Attainment</span></a></li>
+	          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Educational Attainment</span></a></li>
 	          <li class="nav-item"><a href="#experiences-section" class="nav-link"><span>Experiences</span></a></li>
 	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>    
 	          <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
@@ -99,10 +99,13 @@
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
     	<div class="container">
     		<div class="row d-flex">
+				
     			<div class="col-md-6 col-lg-5 d-flex">
+					
     				<div class="img-about img d-flex align-items-stretch">
+						
     					<div class="overlay"></div>
-	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/aboutpic.jpg);">
+	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/aboutpic.jpg); width:300px; height:300px" >
 	    				</div>
     				</div>
     			</div>
@@ -121,7 +124,7 @@
 		            	<li class="d-flex"><span>Address:</span> <span>{{$about->address}}</span></li>
 		            	<li class="d-flex"><span>Zip code:</span> <span> {{$about->zipcode}}</span></li>
 		            	<li class="d-flex"><span>Email:</span> <span>{{$about->email}} </li>
-		            	<li class="d-flex"><span>Phone: </span> <span> {{$about->phone}}</span></li>
+		            	<li class="d-flex"><span>Age: </span> <span> {{$about->age}}</span></li>
 						@endforeach
 		            </ul>
 		          </div>
@@ -132,7 +135,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section ftco-no-pb" id="resume-section">
+    <section class="ftco-section ftco-no-pb" id="education-section">
     	<div class="container">
     	<div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
@@ -159,40 +162,32 @@
     			</div>
     		  </div>
     </section>
-
-    <section class="ftco-section" id="experiences-section">
+					
+	<section class="ftco-section ftco-no-pb" id="experiences-section">
     	<div class="container">
-    		<div class="row justify-content-center ">
-          <div class="col-md-12 heading-section text-center ftco-animate">      
+    	<div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+          
             <h2 class="mb-4">Experiences</h2>
-            <p>  </p>
-          </div>
+             </div>
         </div>
     		<div class="row">
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">TITLE</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DETAILS</h3>
-							</div>
-						</a>
-					</div>
-				
-				</div>
-    	</div>
+    			<div class="col-md-12">
+    				<div class="resume-wrap ftco-animate">
+					@foreach ($exp as $experience)
+						<li class="d-flex"><span>Title : </span> <span>{{$experience->title}} </span></li>
+						<li class="d-flex"><span>Details : </span> <span>{{$experience->details}} </span></li>
+						<li class="d-flex"><span>Image : </span> <span> <img src="{{'storage/' . $experience->image}}" alt="" style="width: 60px; height:60px;"> </span></li>
+						
+						<br>
+						<br>
+						@endforeach
+						
+    				</div>	
+    			</div>
+    		  </div>
     </section>
+ 
 
 		<section class="ftco-section" id="skills-section">
 			<div class="container">
@@ -212,7 +207,7 @@
 							</span>
 							<div class="desc">
 								<h3 class="mb-5">TYPE</h3>
-								<p>{{$sk->type}}</p>
+								<h3>{{$sk->type}}</h3>
 							</div>
 						</a>
 					</div>
@@ -223,7 +218,7 @@
 							</span>
 							<div class="desc">
 								<h3 class="mb-5">DESCRIPTION</h3>
-								<p>{{$sk->description}}</p>
+								<h3>{{$sk->description}}</h3>
 							</div>
 						</a>
 					</div>	
@@ -234,7 +229,7 @@
 			</div>
 		</section>
  
-    <section class="ftco-section ftco-project" id="blog-section">
+    <section class="ftco-section " id="blog-section">
     	<div class="container">
     		<div class="row justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
@@ -243,17 +238,9 @@
             <p> </p>
           </div>
         </div>
+		@foreach ($bl as $blog)
     		<div class="row">
-			<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DATE</h3>
-							</div>
-						</a>
-					</div>
+			
 					<div class="col-md-12 text-center d-flex ftco-animate">
 						<a href="#" class="services-1">
 							<span class="icon">
@@ -261,6 +248,7 @@
 							</span>
 							<div class="desc">
 								<h3 class="mb-5">TITLE</h3>
+								<h3>{{$blog->title}}</h3>
 							</div>
 						</a>
 					</div>
@@ -271,10 +259,22 @@
 							</span>
 							<div class="desc">
 								<h3 class="mb-5">CONTENT</h3>
+								<h3>{{$blog->content}}</h3>
 							</div>
 						</a>
 					</div>
-					
+					<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-flasks"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">DATE</h3>
+								<h3>{{$blog->date}}</h3>
+							</div>
+						</a>
+					</div>
+					@endforeach
     				</div>
     			</div>
     		</div>
@@ -291,15 +291,15 @@
             <p>  </p>
           </div>
         </div>
-
+		@foreach ($con as $contact)
         <div class="row d-flex contact-info mb-5">
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
           	<div class="align-self-stretch box p-4 text-center">
           		<div class="icon d-flex align-items-center justify-content-center">
           			<span class="icon-map-signs"></span>
           		</div>
-          		<h3 class="mb-4">Address</h3>
-	            <p>  </p>
+          		<h3 class="mb-4">Contact Number</h3>
+	            <h5>{{$contact->phone}}</h5>
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -307,8 +307,8 @@
           		<div class="icon d-flex align-items-center justify-content-center">
           			<span class="icon-phone2"></span>
           		</div>
-          		<h3 class="mb-4">Contact Number</h3>
-	            <p><a href="tel://1234567920"> </a></p>
+          		<h3 class="mb-4">Facebook Account </h3>
+				  <h5><a href="{{$contact->facebook}}" target="_blank">{{$contact->facebook}}</a></h5>
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -317,7 +317,7 @@
           			<span class="icon-paper-plane"></span>
           		</div>
           		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">  </a></p>
+				  <h5>{{$contact->email}}</h5>
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -325,10 +325,12 @@
           		<div class="icon d-flex align-items-center justify-content-center">
           			<span class="icon-globe"></span>
           		</div>
-          		<h3 class="mb-4">Website</h3>
-	            <p><a href="#"> </a></p>
+          		<h3 class="mb-4">Linkedin Account</h3>
+				  <h5>{{$contact->linkedin}}</h5>
 	          </div>
           </div>
+
+		  @endforeach
         </div>
       </div>
     </section>
@@ -342,6 +344,7 @@
             <p> </p>
           </div>
         </div>
+		@foreach ($sem as $seminar)
     		<div class="row">
 			<div class="col-md-12 text-center d-flex ftco-animate">
 						<a href="#" class="services-1">
@@ -350,6 +353,7 @@
 							</span>
 							<div class="desc">
 								<h3 class="mb-5">AGENDA</h3>
+								<h3>{{$seminar->agenda}}</h3>
 							</div>
 						</a>
 					</div>
@@ -359,12 +363,24 @@
 								<i class="flaticon-flasks"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">PURPOSE</h3>
+								<h3 class="mb-5">HOST NAME</h3>
+								<h3>{{$seminar->host_name}}</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-flasks"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">DATE</h3>
+								<h3>{{$seminar->date}}</h3>
 							</div>
 						</a>
 					</div>
 					
-					
+					@endforeach
     				</div>
     			</div>
     		</div>

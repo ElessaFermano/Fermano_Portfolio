@@ -4,29 +4,29 @@
 <br>
 <div class="card">
   <div class="card-header">
-    <h2 class="h">EXPERIENCES PAGE</h2>
+    <h2 class="h">MY BLOG PAGE</h2>
   </div>
   <div class="card-body">
-  <a href="{{ url('/experience') }}" class="button" title="Back to experience Page">
+  <a href="{{ url('/education') }}" class="button" title="Back to Blog Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
   <br>
-      <form action="{{ url('experience') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('blog') }}" method="post">
         {!! csrf_field() !!}
 
-        <label>Title </label></br>
+        <label>Title</label></br>
         <input type="text" name="title" id="title" class="form-control" required></br>
-     
-        <label>Details</label></br>
-        <input type="text" name="details" id="details" class="form-control" required></br>
+        <label>Content</label></br>
+        <input type="text" name="content" id="content" class="form-control" required></br>
+        <label>Date</label></br>
+        <input type="date" name="date" id="date" class="form-control" required></br>
         
-        <label>Add Image </label></br>
-        <input type="file" name="image" id="image" class="form-control" required></br>
         <input type="submit" value="Save" class="btn"></br>
     </form>
    
   </div>
 </div>
+
 <style>
   .card{
     background-color: #c2e9e7;

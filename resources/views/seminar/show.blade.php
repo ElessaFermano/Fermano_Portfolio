@@ -14,19 +14,19 @@
   
 <div class="card">
 
-  <div class="card-header">EXPERIENCES PAGE</div>
+  <div class="card-header">SEMINAR PAGE</div>
   
   <div class="card-body">
-  <a href="{{ url('/experience') }}" class="button" title="Back to experience Page">
+  <a href="{{ url('/seminar') }}" class="button" title="Back to Seminar Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a> 
  
         <div class="card-body">
        
 
-        <p class="card-text">Title : {{ $experience->title }}</p>
-        <p class="card-text">Details : {{ $experience->details }}</p>
-        <p class="card-text">Add Image : <img src="{{'storage/' . $experience->image}}" alt="" style="width: 50px; height: 50px"></p>
+        <p class="card-text">Agenda : {{ $seminar->agenda }}</p>
+        <p class="card-text">Host Name : {{ $seminar->host_name }}</p>
+        <p class="card-text">Date : {{ $seminar->date }}</p>
         
    </div> 
   </div>
@@ -34,7 +34,7 @@
 <style>
  
  .card {
-    box-shadow: 0 5px 10px;
+    
      border: 1px solid #ccc;
      border-radius: 8px;
      padding: 16px;

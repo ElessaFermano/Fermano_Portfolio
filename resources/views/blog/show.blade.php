@@ -14,22 +14,21 @@
   
 <div class="card">
 
-  <div class="card-header">ABOUT PAGE</div>
+  <div class="card-header">BLOG PAGE</div>
   
   <div class="card-body">
-  <a href="{{ url('/about') }}" class="button" title="Back to About Page">
+  <a href="{{ url('/blog') }}" class="button" title="Back to Blog Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a> 
  
         <div class="card-body">
        
 
-        <p class="card-text">Name : {{ $about->name }}</p>
-        <p class="card-text">Date of Birth : {{ $about->date_of_birth }}</p>
-        <p class="card-text">Address : {{ $about->address }}</p>
-        <p class="card-text">Zipcode : {{ $about->zipcode }}</p>
-        <p class="card-text">Email : {{ $about->email }}</p>
-        <p class="card-text">Phone : {{ $about->phone }}</p>
+        <p class="card-text">Title : {{ $blog->title }}</p>
+        <p class="card-text">Content : {{ $blog->content }}</p>
+        <p class="card-text">Date  : {{ $blog->date }}</p>
+       
+       
    </div> 
   </div>
 </div>

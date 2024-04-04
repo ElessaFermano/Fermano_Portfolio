@@ -32,7 +32,7 @@ class SkillController extends Controller
 
     public function show(string $id): View
     {
-        $skill = skill::all($id);
+        $skill = Skill::find($id);
         return view('skill.show')->with('skill', $skill);
     }
 

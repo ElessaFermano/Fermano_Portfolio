@@ -4,24 +4,25 @@
 <br>
 <div class="card">
   <div class="card-header">
-    <h2 class="h">EXPERIENCES PAGE</h2>
+    <h2 class="h">SEMINAR PAGE</h2>
   </div>
   <div class="card-body">
-  <a href="{{ url('/experience') }}" class="button" title="Back to experience Page">
+  <a href="{{ url('/seminar') }}" class="button" title="Back to seminar Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
   <br>
-      <form action="{{ url('experience') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('seminar') }}" method="post">
         {!! csrf_field() !!}
 
-        <label>Title </label></br>
-        <input type="text" name="title" id="title" class="form-control" required></br>
+        <label>Agenda</label></br>
+        <input type="text" name="agenda" id="agenda" class="form-control" required></br>
      
-        <label>Details</label></br>
-        <input type="text" name="details" id="details" class="form-control" required></br>
-        
-        <label>Add Image </label></br>
-        <input type="file" name="image" id="image" class="form-control" required></br>
+        <label>Host Name</label></br>
+        <input type="text" name="host_name" id="host_name" class="form-control" required></br>
+     
+        <label>Date</label></br>
+        <input type="date" name="date" id="date" class="form-control" required></br>
+     
         <input type="submit" value="Save" class="btn"></br>
     </form>
    

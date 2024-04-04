@@ -14,16 +14,19 @@
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
  
-    <aside class="left-sidebar">
+    <aside class="left-sidebar" style="background: linear-gradient(to right, lightgray, darkgray);">
    
       <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-          
-        <h3 class="h">ADMIN</h3>
+      <div class="brand-logo d-flex align-items-center justify-content-center">
+       <div class="h1">
+         <h1>PORTFOLIO</h1>
+       </div>
+
+        
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
-            
+           
           </div>
         </div>
         
@@ -34,11 +37,19 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
+              <a class="sidebar-link" href="{{route('home')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
                 <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="#" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Users</span>
               </a>
             </li>
             <li class="nav-small-cap">
@@ -56,7 +67,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{route('education.index')}}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-book"></i>
                 </span>
                 <span class="hide-menu">Educational Attainment</span>
               </a>
@@ -79,15 +90,15 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
+              <a class="sidebar-link" href="{{route('contact.index')}}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-phone"></i>
                 </span>
-                <span class="hide-menu">Webinar / Seminar</span>
+                <span class="hide-menu">Contacts</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
+              <a class="sidebar-link" href="{{route('blog.index')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -95,11 +106,11 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
+              <a class="sidebar-link" href="{{route('seminar.index')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
-                <span class="hide-menu">Contacts</span>
+                <span class="hide-menu">Seminar / Webinar</span>
               </a>
             </li>
         </nav>    
@@ -132,11 +143,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                  
+             
                    <div class="btn btn-outline-primary mx-3 mt-2 d-block">
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit(); ">Logout</a>
@@ -155,7 +162,16 @@
       <div class="container-fluid">
         @yield("content")
         
-        <h5>kapoyaaaaaaaaaaaaaaaa</h5>
+        <!-- <div class="dashboard">
+        <div class="col-xl-3 col-md-6">
+           <div class="card-user">
+              <div class="spectator"> Total  Spectators </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                   <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                  </div>
+               </div>
+           </div>
+        </div> -->
       </div>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -164,6 +180,33 @@
   <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
   <script src="../assets/js/dashboard.js"></script>
+  <style>
+    /* .page-wrapper{
+      background: linear-gradient(to right, lightgray, darkgray);
+    } */
+ 
+    .brand-logo {
+     display: flex;
+     justify-content: center;
+     
+    }
+
+    .card-user{
+      
+      box-shadow: 0  2px 5px black;
+      padding: 20px;
+      padding-bottom: 50px;
+      border-radius: 5px;
+  
+    }
+    .spectator{
+      color: blue;
+      text-align: center;
+    }
+    .spectator:hover{
+      color: lightcoral;
+    }
+  </style>
 </body>
 
 </html>

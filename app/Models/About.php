@@ -15,7 +15,7 @@ class About extends Model
         'address', 
         'zipcode', 
         'email', 
-        'phone'];
+        'age'];
 
     use HasFactory;
 }

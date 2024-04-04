@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('address');
             $table->double('zipcode');
             $table->string('email')->unique();
-            $table->double('phone');
+            $table->double('age');
             $table->timestamps();
         });
     }

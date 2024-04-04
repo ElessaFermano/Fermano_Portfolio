@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="h">ABOUT PAGE</h2>
+                    <h2 class="h">BLOG PAGE</h2>
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/home') }}" class="button" title="Back to Dashboard">
@@ -22,31 +22,31 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Birthdate</th>
-                                    <th>Address</th>
-                                    <th>Zipcode</th>
-                                    <th>Email</th>
-                                    <th>Age</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
+                                    <th>Date</th>
+                                  
                                     <th>Actions</th>
                                 </tr>
                          
-                                @foreach($about as $item)
+                                @foreach($blog as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->date_of_birth }}</td>
-                                        <td>{{ $item->address }}</td>
-                                        <td>{{ $item->zipcode }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->age }}</td>
+                                        
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->content }}</td>
+                                        <td>{{ $item->date }}</td>
                                         
  
                                         <td>
-                                            <!-- <a href="{{ url('/about/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a> -->
-                                            <a href="{{ url('/about/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/blog/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/blog/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
-                                           
+                                            <form method="POST" action="{{ url('/blog' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="delete" title="Delete Info" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -55,9 +55,9 @@
                         </div>
                         <br>
                        
-                        <!-- <a href="{{ url('/about/create') }}" class="button2" title="Add New Info">
+                        <a href="{{ url('/blog/create') }}" class="button2" title="Add New Info">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a> -->
+                        </a>
                     </div>
                 </div>
             </div>
@@ -69,8 +69,6 @@
             box-shadow: 0 5px 10px;
             border-radius: 10px;
             width: 100%;
-            margin: 0;
-            padding: 0;
         }
         .card-header{
             background-color: #02979d;
@@ -85,9 +83,6 @@
         }
         .col-12{
         width: 100%;
-        }
-      tr{
-        padding-left: 5px;
       }
         .button{
             background-color: #3e92cc;
@@ -111,12 +106,11 @@
         .table-responsive{
             background-color: #abc4ff;
             border-radius: 10px;
-            padding: 0;
         }
         .table{
             background-color: #abc4ff;
             table-layout: auto;
-            
+            width: 100%;
         }
         
         .button2{
@@ -131,23 +125,41 @@
             color: hotpink;
             transition-duration: 1s;
         }
-      
+      .view{
+        border: 2px;
+        border-style: solid;
+        border-radius: 5px;
+        color: #7b5063;
+        font-size: small;
+        background-color:#f3d5b5 ;
+      }
+      .view:hover{
+        color: #fb6f92;
+        transition-duration: 1s;
+      }
       .edit{
         border: 2px;
         border-style: solid;
         border-radius: 5px;
         color: #7b5063;
-        font-size: 15px;
+        font-size: small;
         background-color:#f3d5b5 ;
-        padding: 2px;
       }
       .edit:hover{
         color:#fb6f92 ;
         transition-duration: 1s;
       }
-     
-      td{
-        padding: 0;
+      .delete{
+        border: 2px;
+        border-style: solid;
+        border-radius: 5px;
+        color: #7b5063;
+        font-size: small;
+        background-color:#f3d5b5 ;
+      }
+      .delete:hover{
+        color: #fb6f92;
+        transition-duration: 1s;
       }
     </style>
 @endsection

@@ -9,18 +9,30 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         DB::table('users')->insert ([
             [ 
-      
-        'name' => 'Elessa Mae',
+        
         'email' => 'elessafermano@gmail.com',
         'password' => Hash::make('12345678'),
             ]
             ]);
+
+
+            DB::table('about')->insert ([
+                [ 
+            'name'=> 'Elessa Mae Fermano',      
+            'date_of_birth' => '2002-09-02',
+            'address' => 'Sto. Nino Hilongos Leyte',
+            'zipcode' => '6524',
+            'email' => 'em.fermano@mlgcl.edu.ph',
+            'age' => '21',
+            
+            
+                ]
+                ]);
     }
+
+
 }

@@ -14,8 +14,11 @@ class FrontendController extends Controller
         $educ = DB::table('education')->get();
         $skill = DB::table('skill')->get();
         $exp = DB::table('experience')->get();
-        
-        return view('welcome', compact('data', 'educ','skill','exp'));
+        $con = DB::table('contact')->get();
+        $bl = DB::table('blog')->get();
+        $sem = DB::table('seminar')->get();
+
+        return view('welcome', compact('data', 'educ','skill','exp','con','bl','sem'));
         
   
 

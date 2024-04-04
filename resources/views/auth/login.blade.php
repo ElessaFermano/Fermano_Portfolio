@@ -16,7 +16,7 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="row">
-                    <!-- <i class="fas fa-user"></i> -->
+                  
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email Address">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
                     @enderror
                 </div>
                 <div class="row mb-3">
-                    <!-- <i class="fas fa-lock"></i> -->
+                 
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                     @error('password')
                         <span class="invalid-feedback" role="alert">

@@ -4,29 +4,25 @@
 <br>
 <div class="card">
   <div class="card-header">
-    <h2 class="h">ABOUT PAGE</h2>
+    <h2 class="h">CONTACTS PAGE</h2>
   </div>
   <div class="card-body">
-  <a href="{{ url('/about') }}" class="button" title="Back to About Page">
+  <a href="{{ url('/contact') }}" class="button" title="Back to contact Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
   <br>
-      <form action="{{ url('about') }}" method="post">
+      <form action="{{ url('contact') }}" method="post">
         {!! csrf_field() !!}
 
-        <label>Name</label></br>
-        <input type="text" name="name" id="name" class="form-control" required></br>
-        <label>Date of Birth</label></br>
-        <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" required></br>
-        <label>Address</label></br>
-        <input type="text" name="address" id="address" class="form-control" required></br>
-        <label>Zipcode</label></br>
-        <input type="number" name="zipcode" id="zipcode" class="form-control" required></br>
-        <label>Email</label></br>
-        <input type="text" name="email" id="email" class="form-control" required></br>
         <label>Phone</label></br>
         <input type="number" name="phone" id="phone" class="form-control" required></br>
-       
+        <label>Facebook</label></br>
+        <input type="text" name="facebook" id="facebook" class="form-control" required></br>
+        <label>Email</label></br>
+        <input type="text" name="email" id="email" class="form-control" required></br>
+        <label>Linkedin</label></br>
+        <input type="text" name="linkedin" id="linkedin" class="form-control" required></br>
+      
         <input type="submit" value="Save" class="btn"></br>
     </form>
    

@@ -11,6 +11,9 @@ return new class extends Migration
     {
         Schema::create('seminar', function (Blueprint $table) {
             $table->id();
+            $table->string('agenda');
+            $table->string('host_name');
+            $table->date('date');
             $table->timestamps();
         });
     }

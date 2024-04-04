@@ -11,23 +11,28 @@
 <body>
  
 <div class="card">
-  <div class="card-header">SKILL PAGE</div>
+  <div class="card-header">CONTACTS PAGE</div>
   <div class="card-body">
-  <a href="{{ url('/skill') }}" class="button" title="Back to Skill Page">
+  <a href="{{ url('/contact') }}" class="button" title="Back to contact Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
-      <form action="{{ url('skill/' .$skill->id) }}" method="post">
+      <form action="{{ url('contact/' .$contact->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
-        <input type="hidden" name="id" id="id" value="{{$skill->id}}" id="id" />
+        <input type="hidden" name="id" id="id" value="{{$contact->id}}" id="id" />
        
-        <label>Type</label></br>
-        <input type="text" name="type" id="type" value="{{$skill->type}}" class="form-control" required></br>
+        <label>Phone</label></br>
+        <input type="number" name="phone" id="phone" value="{{$contact->phone}}" class="form-control" required></br>
        
-        <label>Description</label></br>
-        <input type="text" name="description" id="description" value="{{$skill->description}}" class="form-control" required></br>
+        <label>Facebook</label></br>
+        <input type="text" name="facebook" id="facebook" value="{{$contact->facebook}}" class="form-control" required></br>
        
-     
+        <label>Email</label></br>
+        <input type="text" name="email" id="email" value="{{$contact->email}}" class="form-control" required></br>
+       
+        <label>Linkedin</label></br>
+        <input type="text" name="linkedin" id="linkedin" value="{{$contact->linkedin}}" class="form-control" required></br>
+          
         <input type="submit" value="Update" class="btn"></br>
     </form>
    
@@ -44,7 +49,7 @@
     box-shadow: 5px 5px;
 }
   .card-header{
-      background-color: #02979d;
+      background-color: #527da8;
       font-size: x-large;
       font-family: sans-serif;
       text-align: center;
@@ -53,7 +58,7 @@
    
   }
   .card-body{
-    background-color:#ffccd5;
+    background-color:#b6ccfe;
    
   }
    .button{

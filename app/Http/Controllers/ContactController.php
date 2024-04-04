@@ -2,63 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(): View
     {
-        //
+        $contact = contact::all();
+        return view ('contact.index')->with('contact', $contact);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+ 
+    public function create(): View
     {
-        //
+        return view('contact.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+  
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $input = $request->all();
+        contact::create($input);
+        return redirect('contact')->with('flash_message', 'Information Addedd!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(string $id): View
     {
-        //
+        $contact = contact::find($id);
+        return view('contact.show')->with('contact', $contact);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(string $id): View
     {
-        //
+        $contact = contact::find($id);
+        return view('contact.edit')->with('contact', $contact);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $contact = contact::find($id);
+        $input = $request->all();
+        $contact->update($input);
+        return redirect('contact')->with('flash_message', 'Information Updated!');  
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    
+    public function destroy(string $id): RedirectResponse
     {
-        //
+        contact::destroy($id);
+        return redirect('contact')->with('flash_message', 'Information deleted!'); 
     }
 }

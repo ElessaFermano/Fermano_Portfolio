@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Seminar extends Model
 {
+    protected $table = 'seminar';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'agenda',
+        'host_name',
+        'date'];
+
     use HasFactory;
 }

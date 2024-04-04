@@ -6,11 +6,11 @@
 }
 
 body {
-  background-image: linear-gradient(to left, rgb(134, 236, 236), rgb(153, 174, 177));
+  background-image: linear-gradient(to left,darkgray, lightgrey);
 }
 
 ::selection {
-  background: rgba(26, 188, 156, 0.3);
+  background: rgba(121, 171, 161, 0.3);
 }
 
 .container {
@@ -28,7 +28,7 @@ body {
 
 .wrapper .title {
   height: 90px;
-  background: #16a085;
+  background: #03a584;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 30px;
@@ -62,7 +62,7 @@ button{
 }
 
 form .row input:focus {
-  border-color: #16a085;
+  border-color: #489888;
   box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25);
 }
 
@@ -79,11 +79,7 @@ form .row input::placeholder {
   background: #16a085;
   border: 1px solid #16a085;
   border-radius: 5px 0 0 5px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 0; */
+
 }
 
 .wrapper form .button {
@@ -91,14 +87,14 @@ form .row input::placeholder {
   font-size: 20px;
   font-weight: 500;
   background: #03a584;
-  border: 1px solid #16a085;
   cursor: pointer;
   width: 20%;
   height: 30px;
   border-radius: 5px;
+  border: none;
   
 }
 
 .wrapper form .button:hover {
-  background: #13473d;
+  background: #07d75a;
 }

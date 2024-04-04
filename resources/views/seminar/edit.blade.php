@@ -11,21 +11,24 @@
 <body>
  
 <div class="card">
-  <div class="card-header">SKILL PAGE</div>
+  <div class="card-header">SEMINAR PAGE</div>
   <div class="card-body">
-  <a href="{{ url('/skill') }}" class="button" title="Back to Skill Page">
+  <a href="{{ url('/seminar') }}" class="button" title="Back to Seminar Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
-      <form action="{{ url('skill/' .$skill->id) }}" method="post">
+      <form action="{{ url('seminar/' .$seminar->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
-        <input type="hidden" name="id" id="id" value="{{$skill->id}}" id="id" />
+        <input type="hidden" name="id" id="id" value="{{$seminar->id}}" id="id" />
        
-        <label>Type</label></br>
-        <input type="text" name="type" id="type" value="{{$skill->type}}" class="form-control" required></br>
+        <label>Agemda</label></br>
+        <input type="text" name="agenda" id="agenda" value="{{$seminar->agenda}}" class="form-control" required></br>
        
-        <label>Description</label></br>
-        <input type="text" name="description" id="description" value="{{$skill->description}}" class="form-control" required></br>
+        <label>Host Name</label></br>
+        <input type="text" name="host_name" id="host_name" value="{{$seminar->host_name}}" class="form-control" required></br>
+       
+        <label>Date</label></br>
+        <input type="date" name="date" id="date" value="{{$seminar->date}}" class="form-control" required></br>
        
      
         <input type="submit" value="Update" class="btn"></br>

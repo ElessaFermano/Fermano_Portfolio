@@ -36,8 +36,8 @@
         <label>Email</label></br>
         <input type="text" name="email" id="email" value="{{$about->email}}" class="form-control" required></br>
        
-        <label>Phone</label></br>
-        <input type="number" name="phone" id="phone" value="{{$about->phone}}" class="form-control" required></br>
+        <label>Age</label></br>
+        <input type="number" name="age" id="age" value="{{$about->age}}" class="form-control" required></br>
        
         <input type="submit" value="Update" class="btn"></br>
     </form>
@@ -46,7 +46,7 @@
 </div>
  <style>
   .card {
-    
+    box-shadow: 0 5px 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 16px;

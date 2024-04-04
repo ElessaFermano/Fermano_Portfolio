@@ -11,23 +11,25 @@
 <body>
  
 <div class="card">
-  <div class="card-header">SKILL PAGE</div>
+  <div class="card-header">BLOG PAGE</div>
   <div class="card-body">
-  <a href="{{ url('/skill') }}" class="button" title="Back to Skill Page">
+  <a href="{{ url('/blog') }}" class="button" title="Back to Blog Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
-      <form action="{{ url('skill/' .$skill->id) }}" method="post">
+      <form action="{{ url('blog/' .$blog->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
-        <input type="hidden" name="id" id="id" value="{{$skill->id}}" id="id" />
+        <input type="hidden" name="id" id="id" value="{{$blog->id}}" id="id" />
        
-        <label>Type</label></br>
-        <input type="text" name="type" id="type" value="{{$skill->type}}" class="form-control" required></br>
+        <label>Title</label></br>
+        <input type="text" name="title" id="title" value="{{$blog->title}}" class="form-control" required></br>
        
-        <label>Description</label></br>
-        <input type="text" name="description" id="description" value="{{$skill->description}}" class="form-control" required></br>
+        <label>Content</label></br>
+        <input type="text" name="content" id="content" value="{{$blog->content}}" class="form-control" required></br>
        
-     
+        <label>Date</label></br>
+        <input type="date" name="date" id="date" value="{{$blog->date}}" class="form-control" required></br>
+       
         <input type="submit" value="Update" class="btn"></br>
     </form>
    
