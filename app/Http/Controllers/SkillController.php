@@ -19,6 +19,9 @@ class SkillController extends Controller
  
     public function create(): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('skill.create');
     }
 
@@ -38,6 +41,9 @@ class SkillController extends Controller
 
     public function edit(string $id): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         $skill = skill::find($id);
         return view('skill.edit')->with('skill', $skill);
     }

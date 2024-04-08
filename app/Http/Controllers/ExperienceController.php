@@ -18,6 +18,9 @@ class ExperienceController extends Controller
   
     public function create(): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('experience.create');
     }
 
@@ -49,6 +52,9 @@ class ExperienceController extends Controller
 
     public function edit(string $id): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         $experience = experience::find($id);
         return view('experience.edit')->with('experience', $experience);
     }

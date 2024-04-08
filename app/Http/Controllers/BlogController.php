@@ -20,6 +20,9 @@ class BlogController extends Controller
  
     public function create(): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('blog.create');
     }
 
@@ -39,6 +42,9 @@ class BlogController extends Controller
 
     public function edit(string $id): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         $blog = Blog::find($id);
         return view('blog.edit')->with('blog', $blog);
     }

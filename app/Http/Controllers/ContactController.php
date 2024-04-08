@@ -20,6 +20,9 @@ class ContactController extends Controller
  
     public function create(): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('contact.create');
     }
 
@@ -39,6 +42,9 @@ class ContactController extends Controller
 
     public function edit(string $id): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         $contact = contact::find($id);
         return view('contact.edit')->with('contact', $contact);
     }

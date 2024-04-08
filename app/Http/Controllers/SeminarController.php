@@ -20,6 +20,9 @@ class SeminarController extends Controller
  
     public function create(): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('seminar.create');
     }
 
@@ -39,6 +42,9 @@ class SeminarController extends Controller
 
     public function edit(string $id): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         $seminar = seminar::find($id);
         return view('seminar.edit')->with('seminar', $seminar);
     }

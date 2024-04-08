@@ -18,6 +18,9 @@ class EducationController extends Controller
   
     public function create(): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('education.create');
     }
 
@@ -36,6 +39,9 @@ class EducationController extends Controller
 
     public function edit(string $id): View
     {
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         $education = education::find($id);
         return view('education.edit')->with('education', $education);
     }

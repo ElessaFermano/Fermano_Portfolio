@@ -30,7 +30,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 
 
 Route::resource("/about", AboutController::class);
@@ -41,3 +40,7 @@ Route::resource("/blog", BlogController::class);
 Route::resource("/contact", ContactController::class);
 Route::resource("/seminar", SeminarController::class);
 Route::resource("/", FrontendController::class);
+Route::middleware(['role:admin'])->group(function () {
+
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+});
