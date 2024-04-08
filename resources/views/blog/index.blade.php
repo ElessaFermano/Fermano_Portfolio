@@ -41,7 +41,7 @@
  
                                         <td>
                                         @if(Auth::User()->role == 'admin')
-                                            <a href="{{ url('/blog/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a>
+
                                             <a href="{{ url('/blog/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
                                             <form method="POST" action="{{ url('/blog' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
