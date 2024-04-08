@@ -45,9 +45,9 @@
                                         
  
                                         <td>
-                                            <!-- <a href="{{ url('/about/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a> -->
+                                        @if(Auth::User()->role == 'admin')
                                             <a href="{{ url('/about/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
- 
+                                        @endif
                                            
                                         </td>
                                     </tr>

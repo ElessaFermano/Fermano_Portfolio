@@ -47,8 +47,7 @@ body{
   height: 100%;
   width: calc(100% - 42px); 
   outline: none;
-  padding: 0 20px;
-  padding-left: 2px;
+  padding: 8px;
   border-radius: 5px;
   border: 1px solid lightgrey;
   font-size: 16px;
@@ -119,4 +118,7 @@ form .signup-link a:hover{
     background-color: #12876f;
     font-size: 15px;
     text-align: center;
+    color: white;
+    padding: 5px;
+    border: none;
   }

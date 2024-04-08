@@ -11,7 +11,7 @@ class ExperienceController extends Controller
 {
     public function index(): View
     {
-        $experience = Experience::all();
+        $experience = Experience::get();
         return view ('experience.index')->with('experience', $experience);
     }
 

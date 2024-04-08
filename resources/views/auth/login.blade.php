@@ -20,7 +20,7 @@
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email Address">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            <strong>{{$message}}</strong>
                         </span>
                     @enderror
                 </div>
@@ -33,9 +33,14 @@
                         </span>
                     @enderror
                 </div>
+                <div class="register">
+                    <a href="{{route('register')}}">Not an Admin? <p>  SIGN UP!</p></a>
+                </div>
                 <div class="row mb-0">
                     <button type="submit" class="button">{{ __('Login') }}</button>
+                    
                 </div>
+                
             </form>
         </div>
     </div>

@@ -11,6 +11,8 @@
 
 <body>
 
+
+
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
  
@@ -19,7 +21,7 @@
       <div>
       <div class="brand-logo d-flex align-items-center justify-content-center">
        <div class="h1">
-         <h1>PORTFOLIO</h1>
+         <h1>{{strtoupper(Auth::User()->role)}}</h1>
        </div>
 
         
@@ -32,6 +34,7 @@
         
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
+          @if(Auth::User()->role == 'admin')
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>
@@ -45,13 +48,15 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="{{route('user.index')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
                 <span class="hide-menu">Users</span>
               </a>
             </li>
+ 
+         @endif   
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Portfolio</span>
@@ -127,11 +132,7 @@
                 <i class="ti ti-menu-2"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-              
-              </a>
-            </li>
+          
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -139,7 +140,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src='{{asset("../assets/images/profile/aboutpic.jpg")}}' alt="" width="35" height="35" class="rounded-circle">
+                  <div style="padding: 3px;">{{ucwords(Auth::User()->name)}}</div>
+                  <img src='{{asset("images/user.png")}}' alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -161,17 +163,7 @@
      
       <div class="container-fluid">
         @yield("content")
-        
-        <!-- <div class="dashboard">
-        <div class="col-xl-3 col-md-6">
-           <div class="card-user">
-              <div class="spectator"> Total  Spectators </div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                   <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                  </div>
-               </div>
-           </div>
-        </div> -->
+       
       </div>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -180,33 +172,8 @@
   <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
   <script src="../assets/js/dashboard.js"></script>
-  <style>
-    /* .page-wrapper{
-      background: linear-gradient(to right, lightgray, darkgray);
-    } */
- 
-    .brand-logo {
-     display: flex;
-     justify-content: center;
-     
-    }
 
-    .card-user{
-      
-      box-shadow: 0  2px 5px black;
-      padding: 20px;
-      padding-bottom: 50px;
-      border-radius: 5px;
-  
-    }
-    .spectator{
-      color: blue;
-      text-align: center;
-    }
-    .spectator:hover{
-      color: lightcoral;
-    }
-  </style>
+
 </body>
 
 </html>

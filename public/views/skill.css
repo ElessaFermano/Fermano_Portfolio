@@ -1,4 +1,4 @@
-.container{
+ .container{
     box-shadow: 0 5px 10px;
     border-radius: 10px;
     width: 100%;
@@ -70,7 +70,7 @@ border: 2px;
 border-style: solid;
 border-radius: 5px;
 color: #7b5063;
-font-size: 15px;
+font-size: 10px;
 background-color:#f3d5b5 ;
 padding: 2px;
 }
@@ -78,7 +78,19 @@ padding: 2px;
 color:#fb6f92 ;
 transition-duration: 1s;
 }
-
+.delete{
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    color: #7b5063;
+    font-size: 10px;
+    background-color:#f3d5b5 ;
+    padding: 2px;
+    }
+    .delete:hover{
+    color:#fb6f92 ;
+    transition-duration: 1s;
+    }
 td{
 padding: 0;
 }

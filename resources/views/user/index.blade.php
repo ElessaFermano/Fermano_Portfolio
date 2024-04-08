@@ -4,13 +4,13 @@
     <br>
     <br>
 </div>
-<link rel="stylesheet" href="views/blog.css">
+<link rel="stylesheet" href="views/user.css">
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="h">BLOG PAGE</h2>
+                    <h2 class="h">USERS PAGE</h2>
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/home') }}" class="button" title="Back to Dashboard">
@@ -23,33 +23,32 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Title</th>
-                                    <th>Content</th>
-                                    <th>Date</th>
-                                  
+                                    <th>Role</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                 
                                     <th>Actions</th>
                                 </tr>
                          
-                                @foreach($blog as $item)
+                                @foreach($user as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->content }}</td>
-                                        <td>{{ $item->date }}</td>
+                                        <td>{{$item->role}}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->password }}</td>
                                         
  
                                         <td>
-                                        @if(Auth::User()->role == 'admin')
-                                            <a href="{{ url('/blog/' . $item->id) }}" title="View Info"><button class="view"><i class="fa fa-eye"  aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/blog/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                           
+                                            <a href="{{ url('/user/' . $item->id . '/edit') }}" title="Edit Info"><button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
-                                            <form method="POST" action="{{ url('/blog' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/user' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="delete" title="Delete Info" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
-                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -57,15 +56,14 @@
                             </table>
                         </div>
                         <br>
-                        @if(Auth::User()->role == 'admin')
-                        <a href="{{ url('/blog/create') }}" class="button2" title="Add New Info">
+                       
+                        <a href="{{ url('/user/create') }}" class="button2" title="Add New Info">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
-                       @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  
+   
 @endsection

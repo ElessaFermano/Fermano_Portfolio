@@ -163,7 +163,7 @@
     		  </div>
     </section>
 					
-	<section class="ftco-section ftco-no-pb" id="experiences-section">
+	<!-- <section class="ftco-section ftco-no-pb" id="experiences-section">
     	<div class="container">
     	<div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
@@ -186,8 +186,60 @@
     				</div>	
     			</div>
     		  </div>
+    </section> -->
+	<section class="ftco-section ftco-experiences" id="experiences-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	
+            <h2 class="mb-4">Experiences</h2>
+            <p> </p>
+          </div>
+        </div>
+		@foreach ($exp as $experience)
+    		<div class="row">
+			<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-analysis"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">TITLE</h3>
+								<h3>{{$experience->title}}</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-flasks"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">DETAILS</h3>
+								<h3>{{$experience->details}}</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-flasks"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">IMAGE</h3>
+								<li class="d-flex"><span></span> <span> <img src="{{'storage/' . $experience->image}}" alt="" style="width: 500px; height:500px; padding:50px;"> </span></li>
+						
+							</div>
+						</a>
+					</div>
+					
+					@endforeach
+    				</div>
+    			</div>
+    		</div>
+    	</div>
     </section>
- 
+
 
 		<section class="ftco-section" id="skills-section">
 			<div class="container">
@@ -280,60 +332,78 @@
     		</div>
     	</div>
     </section> 
+<style>
+	img{
+		border-radius: 100%;
+	}
+</style>
 
- 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          
-            <h2 class="mb-4">Contact Me</h2>
-            <p>  </p>
-          </div>
+	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Contact Me</h2>
+                <p></p>
+            </div>
         </div>
-		@foreach ($con as $contact)
+		
+
+        @foreach ($con as $contact)
         <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-4">Contact Number</h3>
-	            <h5>{{$contact->phone}}</h5>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">Facebook Account </h3>
-				  <h5><a href="{{$contact->facebook}}" target="_blank">{{$contact->facebook}}</a></h5>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-				  <h5>{{$contact->email}}</h5>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-4">Linkedin Account</h3>
-				  <h5>{{$contact->linkedin}}</h5>
-	          </div>
-          </div>
-
-		  @endforeach
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <a href="tel:{{$contact->phone}}" target="_blank" class="icon-link">
+					
+                        <div class="icon d-flex align-items-center justify-content-center">
+							<img src="{{asset("../images/ph.jpg")}}" alt="">
+                            
+                        </div>
+                        <h3 class="mb-4">Contact Number</h3>
+                       
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <a href="{{$contact->facebook}}" target="_blank" class="icon-link">
+                        <div class="icon d-flex align-items-center justify-content-center">
+						<img src="{{asset("../images/fb.png")}}" alt="">
+                            <span class="icon-phone2"></span>
+                        </div>
+                        <h3 class="mb-4">Facebook Account</h3>
+                       
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <a href="mailto:{{$contact->email}}" class="icon-link">
+                        <div class="icon d-flex align-items-center justify-content-center">
+						<img src="{{asset("../images/email.jpg")}}" alt="">
+                            <span class="icon-paper-plane"></span>
+                        </div>
+                        <h3 class="mb-4">Email Address</h3>
+                        
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <a href="{{$contact->linkedin}}" target="_blank" class="icon-link">
+                        <div class="icon d-flex align-items-center justify-content-center">
+						<img src="{{asset("../images/linkedin.png")}}" alt="">
+                            <span class="icon-globe"></span>
+                        </div>
+                        <h3 class="mb-4">Linkedin Account</h3>
+                        
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+        @endforeach
+    </div>
+</section>
+
 
 	<section class="ftco-section ftco-webinar" id="webinar-section">
     	<div class="container">
@@ -388,14 +458,7 @@
     </section>
 
 		
-<style>
-	.popot{
-	
-		font: bold;
-		color: white;
-		font-size: large;
-	}
-</style>
+
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
