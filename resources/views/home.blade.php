@@ -118,6 +118,7 @@
                 <span class="hide-menu">Seminar / Webinar</span>
               </a>
             </li>
+           
         </nav>    
       </div>
     </aside>
@@ -140,7 +141,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <div style="padding: 3px;">{{ucwords(Auth::User()->name)}}</div>
+                  <div style="padding: 8px;">{{ucwords(Auth::User()->name)}}</div>
                   <img src='{{asset("images/user.png")}}' alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">

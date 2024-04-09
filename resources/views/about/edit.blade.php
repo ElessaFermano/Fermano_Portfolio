@@ -27,8 +27,14 @@
         <label>Date of Birth</label></br>
         <input type="date" name="date_of_birth" id="date_of_birth" value="{{$about->date_of_birth}}" class="form-control" required></br>
        
-        <label>Address</label></br>
-        <input type="text" name="address" id="address" value="{{$about->address}}" class="form-control" required></br>
+        <label>Brgy</label></br>
+        <input type="text" name="brgy" id="brgy" value="{{$about->brgy}}" class="form-control" required></br>
+       
+        <label>Municipality</label></br>
+        <input type="text" name="municipality" id="municipality" value="{{$about->municipality}}" class="form-control" required></br>
+       
+        <label>Province</label></br>
+        <input type="text" name="province" id="province" value="{{$about->province}}" class="form-control" required></br>
        
         <label>Zipcode</label></br>
         <input type="number" name="zipcode" id="zipcode" value="{{$about->zipcode}}" class="form-control" required></br>

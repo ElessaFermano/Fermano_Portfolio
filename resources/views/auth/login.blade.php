@@ -34,7 +34,7 @@
                     @enderror
                 </div>
                 <div class="register">
-                    <a href="{{route('register')}}">Not an Admin? <p>  SIGN UP!</p></a>
+                    <a href="{{route('register')}}">Want to provide feedback? <p>  SIGN UP!</p></a>
                 </div>
                 <div class="row mb-0">
                     <button type="submit" class="button">{{ __('Login') }}</button>

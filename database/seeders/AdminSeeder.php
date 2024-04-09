@@ -25,12 +25,23 @@ class AdminSeeder extends Seeder
                 [ 
             'name'=> 'Elessa Mae Fermano',      
             'date_of_birth' => '2002-09-02',
-            'address' => 'Sto. Nino Hilongos Leyte',
+            'brgy' => 'Sto. Nino',
+            'municipality' => 'Hilongos',
+            'province' => 'Leyte',
             'zipcode' => '6524',
             'email' => 'em.fermano@mlgcl.edu.ph',
             'age' => '21',
             
             
+             ]
+             ]);
+
+             DB::table('contact')->insert ([
+                [
+                    'phone' => '09973208548',
+                    'facebook' => 'https://www.facebook.com/elessa.fermano',
+                    'email' => 'em.fermano@mlgcl.edu.ph',
+                    'linkedin' => 'https://www.linkedin.com/in/elessa-mae-fermano-371b81258/',
                 ]
                 ]);
     }

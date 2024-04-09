@@ -26,7 +26,9 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Birthdate</th>
-                                    <th>Address</th>
+                                    <th>Brgy</th>
+                                    <th>Municipality</th>
+                                    <th>Province</th>
                                     <th>Zipcode</th>
                                     <th>Email</th>
                                     <th>Age</th>
@@ -38,7 +40,9 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->date_of_birth }}</td>
-                                        <td>{{ $item->address }}</td>
+                                        <td>{{ $item->brgy }}</td>
+                                        <td>{{ $item->municipality }}</td>
+                                        <td>{{ $item->province }}</td>
                                         <td>{{ $item->zipcode }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->age }}</td>

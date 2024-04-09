@@ -16,7 +16,7 @@
   <a href="{{ url('/experience') }}" class="button" title="Back to Skill Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
-      <form action="{{ url('experience/' .$experience->id) }}" method="post">
+      <form action="{{ url('experience/' .$experience->id) }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$experience->id}}" id="id" />
@@ -28,7 +28,7 @@
         <input type="text" name="details" id="details" value="{{$experience->details}}" class="form-control" required></br>
        
         <label>Image</label></br>
-        <input type="file" name="image" id="image" value="{{$experience->image}}" class="form-control" required></br>
+        <input type="file" name="image" id="image"   value="{{$experience->image}}" class="form-control" required></br>
        
      
         <input type="submit" value="Update" class="btn"></br>

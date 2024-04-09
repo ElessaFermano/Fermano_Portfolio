@@ -13,7 +13,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('date_of_birth');
-            $table->string('address');
+            $table->string('brgy');
+            $table->string('municipality');
+            $table->string('province');
             $table->double('zipcode');
             $table->string('email')->unique();
             $table->double('age');

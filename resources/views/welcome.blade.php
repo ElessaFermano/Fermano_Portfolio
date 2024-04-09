@@ -18,11 +18,6 @@
 		<link rel="stylesheet" href="css/owl.theme.default.min.css">
 		<link rel="stylesheet" href="css/magnific-popup.css">
 
-		<!-- <link rel="stylesheet" href="css/aos.css">
-		<link rel="stylesheet" href="css/ionicons.min.css"> -->
-
-		<!-- <link rel="stylesheet" href="css/flaticon.css"> -->
-		<!-- <link rel="stylesheet" href="css/icomoon.css"> -->
 		<link rel="stylesheet" href="css/style.css">
 
 
@@ -33,43 +28,37 @@
 	 </style>
     </head>
     <body class="antialiased" data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-        <!-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen selection:text-white">
-            @if (Route::has('login'))
-                <div >
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>     -->	  
+ 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Portfolio</a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
- 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Educational Attainment</span></a></li>
-	          <li class="nav-item"><a href="#experiences-section" class="nav-link"><span>Experiences</span></a></li>
-	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>    
-	          <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contacts</span></a></li>
-			  <li class="nav-item"><a href="#webinar-section" class="nav-link"><span>Webinar</span></a></li>
-           
-	        </ul>
-      
-	      </div>
+
+		  <div class="collapse navbar-collapse" id="ftco-nav">
+    <ul class="navbar-nav nav ml-auto">
+        <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span>Resume</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#about-section">About</a>
+                <a class="dropdown-item" href="#education-section">Educational Attainment</a>
+                <a class="dropdown-item" href="#experiences-section">Experiences</a>
+                <a class="dropdown-item" href="#skills-section">Skills</a>
+                <a class="dropdown-item" href="#blog-section">My Blog</a>
+				<a class="dropdown-item" href="#webinar-section">Webinar</a>
+            </div>
+        </li>
+        <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contacts</span></a></li>
+        <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><span>Log In</span></a></li>
+		
+    </ul>
+</div>
+
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
@@ -86,7 +75,7 @@
 		          		<span class="subheading">Hello!</span>
 			            <h1 class="mb-4 mt-3">I'm <span>Elessa</span></h1>
 			            <h2 class="mb-4"> </h2>
-						<a class="button" href="{{ route('login') }}">Log In</a>
+						<a class="button"> Pursuing my passion and still learning about graphic design. </a>
 		            </div>
 		          </div>
 	        	</div>
@@ -98,7 +87,7 @@
 
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
     	<div class="container">
-    		<div class="row d-flex">
+    		<div class="row justify-content-center pb-5">
 				
     			<div class="col-md-6 col-lg-5 d-flex">
 					
@@ -113,15 +102,15 @@
     				<div class="row justify-content-start pb-3">
 		          <div class="col-md-12 heading-section ftco-animate">
 		      
-		            <h2 class="mb-4">About Me</h2>
-		           
 		            <ul class="about-info mt-4 px-md-0 px-2">
 
 						@foreach($data as $about)
 
 		            	<li class="d-flex"><span>Name:</span> <span>{{$about->name}} </span></li>
 		            	<li class="d-flex"><span>Date of birth:</span> <span> {{$about->date_of_birth}}</span></li>
-		            	<li class="d-flex"><span>Address:</span> <span>{{$about->address}}</span></li>
+		            	<li class="d-flex"><span>Brgy:</span> <span>{{$about->brgy}}</span></li>
+						<li class="d-flex"><span>Municipality:</span> <span>{{$about->municipality}}</span></li>
+						<li class="d-flex"><span>Province:</span> <span>{{$about->province}}</span></li>
 		            	<li class="d-flex"><span>Zip code:</span> <span> {{$about->zipcode}}</span></li>
 		            	<li class="d-flex"><span>Email:</span> <span>{{$about->email}} </li>
 		            	<li class="d-flex"><span>Age: </span> <span> {{$about->age}}</span></li>
@@ -163,30 +152,7 @@
     		  </div>
     </section>
 					
-	<!-- <section class="ftco-section ftco-no-pb" id="experiences-section">
-    	<div class="container">
-    	<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          
-            <h2 class="mb-4">Experiences</h2>
-             </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-12">
-    				<div class="resume-wrap ftco-animate">
-					@foreach ($exp as $experience)
-						<li class="d-flex"><span>Title : </span> <span>{{$experience->title}} </span></li>
-						<li class="d-flex"><span>Details : </span> <span>{{$experience->details}} </span></li>
-						<li class="d-flex"><span>Image : </span> <span> <img src="{{'storage/' . $experience->image}}" alt="" style="width: 60px; height:60px;"> </span></li>
-						
-						<br>
-						<br>
-						@endforeach
-						
-    				</div>	
-    			</div>
-    		  </div>
-    </section> -->
+
 	<section class="ftco-section ftco-experiences" id="experiences-section">
     	<div class="container">
     		<div class="row justify-content-center pb-5">
@@ -338,6 +304,58 @@
 	}
 </style>
 
+<section class="ftco-section ftco-webinar" id="webinar-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	
+            <h2 class="mb-4">Webinar</h2>
+            <p> </p>
+          </div>
+        </div>
+		@foreach ($sem as $seminar)
+    		<div class="row">
+			<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-analysis"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">AGENDA</h3>
+								<h3>{{$seminar->agenda}}</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-flasks"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">HOST NAME</h3>
+								<h3>{{$seminar->host_name}}</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-12 text-center d-flex ftco-animate">
+						<a href="#" class="services-1">
+							<span class="icon">
+								<i class="flaticon-flasks"></i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">DATE</h3>
+								<h3>{{$seminar->date}}</h3>
+							</div>
+						</a>
+					</div>
+					
+					@endforeach
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
 	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -405,57 +423,7 @@
 </section>
 
 
-	<section class="ftco-section ftco-webinar" id="webinar-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	
-            <h2 class="mb-4">Webinar</h2>
-            <p> </p>
-          </div>
-        </div>
-		@foreach ($sem as $seminar)
-    		<div class="row">
-			<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">AGENDA</h3>
-								<h3>{{$seminar->agenda}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">HOST NAME</h3>
-								<h3>{{$seminar->host_name}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DATE</h3>
-								<h3>{{$seminar->date}}</h3>
-							</div>
-						</a>
-					</div>
-					
-					@endforeach
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+	
 
 		
 

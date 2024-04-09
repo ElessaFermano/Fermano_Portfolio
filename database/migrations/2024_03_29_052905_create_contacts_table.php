@@ -12,9 +12,9 @@ return new class extends Migration
         Schema::create('contact', function (Blueprint $table) {
             $table->id();
             $table->double('phone');
-            $table->string('facebook')->nullable();
-            $table->string('email')->nullable();
-            $table->string('linkedin')->nullable();
+            $table->string('facebook');
+            $table->string('email');
+            $table->string('linkedin');
             $table->timestamps();
         });
     }

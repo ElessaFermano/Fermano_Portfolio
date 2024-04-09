@@ -12,7 +12,9 @@ class About extends Model
     protected $fillable = [
         'name', 
         'date_of_birth',
-        'address', 
+        'brgy',
+        'municipality',
+        'province', 
         'zipcode', 
         'email', 
         'age'];
