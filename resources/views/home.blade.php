@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Dashboard</title>
+  <title>Dashboard</title>
   
   <link rel="stylesheet" href= '{{asset("../assets/css/styles.min.css")}}' />
 </head>
@@ -118,6 +118,7 @@
                 <span class="hide-menu">Seminar / Webinar</span>
               </a>
             </li>
+           
            
         </nav>    
       </div>
