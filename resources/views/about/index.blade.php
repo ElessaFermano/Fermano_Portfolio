@@ -62,7 +62,11 @@
                             </table>
                         </div>
                         <br>
-                   
+                        @if(Auth::User()->role == 'admin')
+                        <a href="{{ url('/about/create') }}" class="button2" title="Add New Info">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        </a>
+                       @endif
                     </div>
                 </div>
             </div>

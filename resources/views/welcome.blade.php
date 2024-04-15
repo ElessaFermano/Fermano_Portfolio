@@ -157,155 +157,50 @@
 		</div>
 	</section>
 
+	<section class="educ-container" id="skills-section">
+		<br><br>
+		<h2>My Skills</h2>
+			<br>
+			<div class="educ"> 
+			@foreach($skill as $sk)
+				<li class="d-flex"><span> Type : </span> <span>{{$sk->type}} </span></li>
+				<li class="d-flex"><span> Description : </span> <span>{{$sk->description}} </span></li>
+				
+				<br><br>
+			@endforeach
+		</div>
+	</section>
 
-		<section class="ftco-section" id="skills-section">
-			<div class="container">
-				<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">My Skills</h2>
-            <p>   </p>
-          </div>
-        </div>
-			
-		@foreach($skill as $sk)
-				<div class="row">
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">TYPE</h3>
-								<h3>{{$sk->type}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DESCRIPTION</h3>
-								<h3>{{$sk->description}}</h3>
-							</div>
-						</a>
-					</div>	
-					@endforeach			
-				</div>
+	<section class="educ-container" id="blog-section">
+		<br><br>
+		<h2>My Blogs</h2>
+			<br>
+			<div class="educ"> 
+			@foreach ($bl as $blog)
+				<li class="d-flex"><span> Title : </span> <span>{{$blog->title}} </span></li>
+				<li class="d-flex"><span> Content : </span> <span>{{$blog->content}} </span></li>
+				<li class="d-flex"><span> Date : </span> <span>{{$blog->date}} </span></li>
+				
+				<br><br>
+			@endforeach
+		</div>
+	</section>
 
-				</div>
-			</div>
-		</section>
- 
-    <section class="ftco-section " id="blog-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	
-            <h2 class="mb-4">My Blog</h2>
-            <p> </p>
-          </div>
-        </div>
-		@foreach ($bl as $blog)
-    		<div class="row">
-			
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">TITLE</h3>
-								<h3>{{$blog->title}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">CONTENT</h3>
-								<h3>{{$blog->content}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DATE</h3>
-								<h3>{{$blog->date}}</h3>
-							</div>
-						</a>
-					</div>
-					@endforeach
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section> 
-<style>
-	img{
-		border-radius: 100%;
-	}
-</style>
+	<section class="educ-container" id="webinar-section">
+		<br><br>
+		<h2>Webinar / Seminar</h2>
+			<br>
+			<div class="educ"> 
+			@foreach ($sem as $seminar)
+				<li class="d-flex"><span> Agenda : </span> <span>{{$seminar->agenda}} </span></li>
+				<li class="d-flex"><span> Host name : </span> <span>{{$seminar->host_name}} </span></li>
+				<li class="d-flex"><span> Date : </span> <span>{{$seminar->date}} </span></li>
+				
+				<br><br>
+			@endforeach
+		</div>
+	</section>
 
-<section class="ftco-section ftco-webinar" id="webinar-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	
-            <h2 class="mb-4">Webinar</h2>
-            <p> </p>
-          </div>
-        </div>
-		@foreach ($sem as $seminar)
-    		<div class="row">
-			<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">AGENDA</h3>
-								<h3>{{$seminar->agenda}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">HOST NAME</h3>
-								<h3>{{$seminar->host_name}}</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DATE</h3>
-								<h3>{{$seminar->date}}</h3>
-							</div>
-						</a>
-					</div>
-					
-					@endforeach
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
 
 	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
     <div class="container">
@@ -324,7 +219,7 @@
                     <a href="tel:{{$contact->phone}}" target="_blank" class="icon-link">
 					
                         <div class="icon d-flex align-items-center justify-content-center">
-							<img src="{{asset("../images/ph.jpg")}}" alt="">
+							<img src="{{asset("../images/ph.jpg")}}" alt="" style="border-radius:100%;">
                             
                         </div>
                         <h3 class="mb-4">Contact Number</h3>
@@ -336,7 +231,7 @@
                 <div class="align-self-stretch box p-4 text-center">
                     <a href="{{$contact->facebook}}" target="_blank" class="icon-link">
                         <div class="icon d-flex align-items-center justify-content-center">
-						<img src="{{asset("../images/fb.png")}}" alt="">
+						<img src="{{asset("../images/fb.png")}}" alt="" style="border-radius:100%;">
                             <span class="icon-phone2"></span>
                         </div>
                         <h3 class="mb-4">Facebook Account</h3>
@@ -348,7 +243,7 @@
                 <div class="align-self-stretch box p-4 text-center">
                     <a href="mailto:{{$contact->email}}" class="icon-link">
                         <div class="icon d-flex align-items-center justify-content-center">
-						<img src="{{asset("../images/email.jpg")}}" alt="">
+						<img src="{{asset("../images/email.jpg")}}" alt="" style="border-radius:100%;">
                             <span class="icon-paper-plane"></span>
                         </div>
                         <h3 class="mb-4">Email Address</h3>
@@ -360,7 +255,7 @@
                 <div class="align-self-stretch box p-4 text-center">
                     <a href="{{$contact->linkedin}}" target="_blank" class="icon-link">
                         <div class="icon d-flex align-items-center justify-content-center">
-						<img src="{{asset("../images/linkedin.png")}}" alt="">
+						<img src="{{asset("../images/linkedin.png")}}" alt="" style="border-radius:100%;">
                             <span class="icon-globe"></span>
                         </div>
                         <h3 class="mb-4">Linkedin Account</h3>

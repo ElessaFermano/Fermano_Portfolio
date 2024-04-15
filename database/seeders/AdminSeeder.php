@@ -21,21 +21,6 @@ class AdminSeeder extends Seeder
             ]);
 
 
-            DB::table('about')->insert ([
-                [ 
-            'name'=> 'Elessa Mae Fermano',      
-            'date_of_birth' => '2002-09-02',
-            'brgy' => 'Sto. Nino',
-            'municipality' => 'Hilongos',
-            'province' => 'Leyte',
-            'zipcode' => '6524',
-            'email' => 'em.fermano@mlgcl.edu.ph',
-            'age' => '21',
-            
-            
-             ]
-             ]);
-
              DB::table('contact')->insert ([
                 [
                     'phone' => '09973208548',
