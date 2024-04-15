@@ -152,6 +152,7 @@
 				<li class="d-flex"><span> Details : </span> <span>{{$experiences->details}} </span></li>
 				<span> <img src="{{'storage/' . $experiences->image}}" style="width: 500px; height:500px; justify-content:center" > </span></li>
 				</span>
+				<br><br>
 			@endforeach
 		</div>
 	</section>
