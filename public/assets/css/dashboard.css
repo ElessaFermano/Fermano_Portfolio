@@ -1,0 +1,10 @@
+.container-count{
+    box-shadow: 0 5px 5px black;
+    width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    display: inline-block;
+    margin: 20px;
+  }

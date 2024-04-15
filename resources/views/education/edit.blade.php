@@ -25,7 +25,7 @@
         <input type="text" name="grade_level" id="grade_level" value="{{$education->grade_level}}" class="form-control" required></br>
        
         <label>Year</label></br>
-        <input type="number" name="year" id="year" value="{{$education->year}}" class="form-control" required></br>
+        <input type="text" name="year" id="year" value="{{$education->year}}" class="form-control" required></br>
        
         <label>Name of School</label></br>
         <input type="text" name="school_name" id="school_name" value="{{$education->school_name}}" class="form-control" required></br>

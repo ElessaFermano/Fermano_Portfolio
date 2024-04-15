@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->string('grade_level');
-            $table->double('year');
+            $table->string('year');
             $table->string('school_name');
             $table->string('address');
             $table->timestamps();

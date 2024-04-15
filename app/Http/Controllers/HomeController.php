@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Seminar;
+use App\Models\Skill;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $total_users = User::count();
+        $total_educ = Education::count();
+        $total_skills = Skill::count();
+        $total_exp = Experience::count();
+        $total_blogs = Blog::count();
+        $total_seminar = Seminar::count();
+        
+
+        return view('home', compact('total_users','total_educ','total_skills', 'total_exp', 'total_blogs', 'total_seminar'));
+ 
     }
 }

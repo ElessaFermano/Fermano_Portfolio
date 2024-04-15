@@ -16,6 +16,7 @@
   <a href="{{ url('/user') }}" class="button" title="Back to user Page">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
   </a>
+ 
       <form action="{{ url('user/' .$user->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")

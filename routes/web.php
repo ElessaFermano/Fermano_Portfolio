@@ -6,9 +6,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SeminarController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +31,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::resource("/user", UserController::class);
 
 Route::resource("/about", AboutController::class);
 Route::resource("/education", EducationController::class);
@@ -40,7 +43,3 @@ Route::resource("/blog", BlogController::class);
 Route::resource("/contact", ContactController::class);
 Route::resource("/seminar", SeminarController::class);
 Route::resource("/", FrontendController::class);
-Route::middleware(['role:admin'])->group(function () {
-
-    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
-});

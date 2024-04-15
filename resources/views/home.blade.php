@@ -7,6 +7,7 @@
   <title>Dashboard</title>
   
   <link rel="stylesheet" href= '{{asset("../assets/css/styles.min.css")}}' />
+  <link rel="stylesheet" href="{{asset("../assets/css/dashboard.css")}}">
 </head>
 
 <body>
@@ -165,8 +166,36 @@
      
       <div class="container-fluid">
         @yield("content")
-       
-      </div>
+
+        @if(Route::is('home'))
+
+        <div class="container-count">
+         <p>Total Users: {{$total_users}}</p>
+        </div>
+
+        <div class="container-count">
+         <p>Education: {{$total_educ}}</p>
+        </div>
+
+        <div class="container-count">
+         <p>Total Skills: {{$total_skills}}</p>
+        </div>
+
+        <div class="container-count">
+         <p>Total Experiences: {{$total_exp}}</p>
+        </div>
+        
+        <div class="container-count">
+         <p>Total Blogs: {{$total_blogs}}</p>
+        </div>
+
+        <div class="container-count">
+         <p>Total Seminar: {{$total_seminar}}</p>
+        </div>
+
+        @endif
+
+   
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
