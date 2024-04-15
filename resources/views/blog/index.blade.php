@@ -26,8 +26,9 @@
                                     <th>Title</th>
                                     <th>Content</th>
                                     <th>Date</th>
-                                  
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($blog as $item)

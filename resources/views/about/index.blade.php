@@ -32,7 +32,9 @@
                                     <th>Zipcode</th>
                                     <th>Email</th>
                                     <th>Age</th>
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($about as $item)

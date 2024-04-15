@@ -27,8 +27,9 @@
                                     <th>Facebook</th>
                                     <th>Email</th>
                                     <th>Linkedin</th>
-                                    
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($contact as $item)

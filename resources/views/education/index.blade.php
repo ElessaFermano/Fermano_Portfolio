@@ -27,7 +27,9 @@
                                     <th>Year</th>
                                     <th>Name of School</th>
                                     <th>Address</th>
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($education as $item)

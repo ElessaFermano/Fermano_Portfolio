@@ -25,7 +25,9 @@
                                     <th>#</th>
                                     <th>Type</th>
                                     <th>Description</th>
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($skill as $item)

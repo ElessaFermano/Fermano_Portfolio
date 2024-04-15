@@ -26,7 +26,9 @@
                                     <th>Title</th>
                                     <th>Details</th>
                                     <th>Add Image</th>
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($experience as $item)

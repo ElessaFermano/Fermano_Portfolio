@@ -26,7 +26,9 @@
                                     <th>Agenda</th>
                                     <th>Host Name</th>
                                     <th>Date</th>
+                                    @if(Auth::User()->role == 'admin')
                                     <th>Actions</th>
+                                    @endif
                                 </tr>
                          
                                 @foreach($seminar as $item)

@@ -167,8 +167,9 @@
       <div class="container-fluid">
         @yield("content")
 
+        @if(Auth::user()->role == 'admin')
         @if(Route::is('home'))
-
+        
         <div class="container-count">
          <p>Total Users: {{$total_users}}</p>
         </div>
@@ -193,6 +194,7 @@
          <p>Total Seminar: {{$total_seminar}}</p>
         </div>
 
+        @endif
         @endif
 
    
