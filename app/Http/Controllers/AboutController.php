@@ -13,49 +13,114 @@ class AboutController extends Controller
 
     public function index(): View
     {
-        $about = About::all();
-        return view ('about.index')->with('about', $about);
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin'){
+                $about = About::all();
+                return view ('about.index')->with('about', $about);
+            }
+            else{
+                abort(404);
+            }
+        }
+       
     }
 
  
     public function create(): View
     {
-        if(auth()->user()->role =="spectator"){
-            return abort(403, 'Denied Access');
+        if(empty(auth()->user()->role)){
+            abort(404);
         }
-        return view('about.create');
+        else{
+            if(auth()->user()->role == 'admin') {
+                return view('about.create');
+            }
+            else{
+                abort(404);
+            }
+        
+        }
+     
     }
 
   
     public function store(Request $request): RedirectResponse
     {
-        $input = $request->all();
-        About::create($input);
-        return redirect('about')->with('flash_message', 'Information Addedd!');
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin') {
+                $input = $request->all();
+                About::create($input);
+                return redirect('about')->with('flash_message', 'Information Addedd!');
+            }
+            else{
+                abort(404);
+            }
+        
+        }
+        
     }
 
     public function show(string $id): View
     {
-        $about = About::find($id);
-        return view('about.show')->with('about', $about);
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin') {
+                $about = About::find($id);
+                 return view('about.show')->with('about', $about);
+            }
+            else{
+                abort(404);
+            }
+        
+        }
+        
+        
     }
 
     public function edit(string $id): View
     {
-        if(auth()->user()->role =="spectator"){
-            return abort(403, 'Denied Access');
+        if(empty(auth()->user()->role)){
+            abort(404);
         }
-        $about = about::find($id);
-        return view('about.edit')->with('about', $about);
+        else{
+            if(auth()->user()->role == 'admin') {
+                $about = about::find($id);
+                 return view('about.edit')->with('about', $about);
+            }
+            else{
+                abort(404);
+            }
+        
+        }
         
     }
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $about = about::find($id);
-        $input = $request->all();
-        $about->update($input);
-        return redirect('about')->with('flash_message', 'Information Updated!');  
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin') {
+                $about = about::find($id);
+                $input = $request->all();
+                $about->update($input);
+                return redirect('about')->with('flash_message', 'Information Updated!');
+            }
+            else{
+                abort(404);
+            }
+        
+        }
+          
     }
 
     

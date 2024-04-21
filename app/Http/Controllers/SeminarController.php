@@ -13,54 +13,125 @@ class SeminarController extends Controller
 
     public function index(): View
     {
-        $seminar = seminar::all();
-        return view ('seminar.index')->with('seminar', $seminar);
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == "admin"){
+                $seminar = seminar::all();
+                return view ('seminar.index')->with('seminar', $seminar);
+            }else{
+                abort(404);
+            }
+            
+        }
+        
     }
 
  
     public function create(): View
     {
-        if(auth()->user()->role =="spectator"){
-            return abort(403, 'Denied Access');
+        if(empty(auth()->user()->role)){
+            abort(404);
         }
-        return view('seminar.create');
+        else{
+            if(auth()->user()->role == "admin"){
+                return view('seminar.create');
+            }else{
+                abort(404);
+            }
+            
+        }
+        
     }
 
   
     public function store(Request $request): RedirectResponse
     {
-        $input = $request->all();
-        seminar::create($input);
-        return redirect('seminar')->with('flash_message', 'Information Addedd!');
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == "admin"){
+                $input = $request->all();
+                seminar::create($input);
+                return redirect('seminar')->with('flash_message', 'Information Addedd!');
+            }else{
+                abort(404);
+            }
+            
+        }
+        
     }
 
     public function show(string $id): View
     {
-        $seminar = seminar::find($id);
-        return view('seminar.show')->with('seminar', $seminar);
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == "admin"){
+                $seminar = seminar::find($id);
+                return view('seminar.show')->with('seminar', $seminar);
+            }else{
+                abort(404);
+            }
+            
+        }
+        
     }
 
     public function edit(string $id): View
     {
-        if(auth()->user()->role =="spectator"){
-            return abort(403, 'Denied Access');
+        if(empty(auth()->user()->role)){
+        abort(404);
+    }
+    else{
+        if(auth()->user()->role == "admin"){
+            $seminar = seminar::find($id);
+            return view('seminar.edit')->with('seminar', $seminar);
+        }else{
+            abort(404);
         }
-        $seminar = seminar::find($id);
-        return view('seminar.edit')->with('seminar', $seminar);
+        
+    }
+       
     }
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $seminar = seminar::find($id);
-        $input = $request->all();
-        $seminar->update($input);
-        return redirect('seminar')->with('flash_message', 'Information Updated!');  
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == "admin"){
+                $seminar = seminar::find($id);
+                $input = $request->all();
+                $seminar->update($input);
+                return redirect('seminar')->with('flash_message', 'Information Updated!');
+            }else{
+                abort(404);
+            }
+            
+        }
+          
     }
 
     
     public function destroy(string $id): RedirectResponse
     {
-        seminar::destroy($id);
-        return redirect('seminar')->with('flash_message', 'Information deleted!'); 
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == "admin"){
+                seminar::destroy($id);
+        return redirect('seminar')->with('flash_message', 'Information deleted!');
+            }else{
+                abort(404);
+            }
+            
+        }
+         
     }
 }

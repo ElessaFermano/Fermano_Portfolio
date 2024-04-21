@@ -12,49 +12,115 @@ class UserController extends Controller
 {
     public function index(): View
     {
-        $user = User::all();  
-        return view ('user.index')->with('users', $user);
-        
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin'){
+                $user = User::all();  
+                return view ('user.index')->with('users', $user);
+            }
+            else{
+                abort(404);
+            }
+        }
+      
     }
 
  
     public function create(): View
     {
-        return view('user.create');
+        if(empty(auth()->role)){
+            abort(404);
+        }else{
+            if(auth()->user()->role == 'admin'){
+                return view('user.create');
+            }else{
+                abort(404);
+            }
+        }
+        
     }
 
   
     public function store(Request $request): RedirectResponse
     {
-       $input = $request->all();
-        user::create($input);
-        return redirect('users')->with('flash_message', 'Information Addedd!');
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }else{
+            if(auth()->user()->role == 'admin'){
+                $input = $request->all();
+                user::create($input);
+                return redirect()->route('user.index')->with('flash_message', 'Information Addedd!');
+            }else{
+                abort(404);
+            }
+        }
+        
     }
 
     public function show(string $id): View
     {
-        $user = User::find($id);
-        return view('user.show')->with('users', $user);
+        if(empty(auth()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin'){
+                $user = User::find($id);
+                return view('user.show')->with('users', $user);
+            }else{
+                abort(404);
+            }
+        }
+        
+       
     }
 
     public function edit(string $id): View
     {
-        $user = User::find($id);
-        return view('user.edit')->with('users', $user);
+        if(empty(auth()->role)){
+            abort(404);
+        }else{
+            if(auth()->user()->role == 'admin'){
+                $user = User::find($id);
+                return view('user.edit')->with('users', $user);
+            }else{
+                abort(404);
+            }
+        }
+        
     }
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $user = User::find($id);
-        $input = $request->all();
-        $user->update($input);
-        return redirect('users')->with('flash_message', 'Information Updated!');  
+        if(empty(auth()->role)){
+            abort(404);
+        }else{
+            if(auth()->user()->role == 'admin'){
+                $user = User::find($id);
+                $input = $request->all();
+                $user->update($input);
+                return redirect('users')->with('flash_message', 'Information Updated!'); 
+            }else{
+                abort(404);
+            }
+        }
+         
     }
 
     
     public function destroy(string $id): RedirectResponse
     {
-        user::destroy($id);
+        if(empty(auth()->role)){
+            abort(404);
+        }else{
+            if(auth()->user()->role == 'admin'){
+                user::destroy($id);
         return redirect('users')->with('flash_message', 'Information deleted!'); 
+            }else{
+                abort(404);
+            }
+        }
+        
     }
 }

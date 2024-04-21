@@ -57,7 +57,7 @@
               </a>
             </li>
  
-         @endif   
+           
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Portfolio</span>
@@ -119,12 +119,12 @@
                 <span class="hide-menu">Seminar / Webinar</span>
               </a>
             </li>
-           
+            @endif 
            
         </nav>    
       </div>
     </aside>
-
+     
     <div class="body-wrapper">
   
       <header class="app-header">

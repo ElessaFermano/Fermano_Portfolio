@@ -12,8 +12,19 @@ class SkillController extends Controller
 
     public function index(): View
     {
-        $skill = Skill::all();
-        return view ('skill.index')->with('skill', $skill);
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin'){
+                $skill = Skill::all();
+                return view ('skill.index')->with('skill', $skill);
+            }
+            else{
+                abort(404);
+            }
+        }
+        
     }
 
  

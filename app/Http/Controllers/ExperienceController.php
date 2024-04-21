@@ -11,17 +11,37 @@ class ExperienceController extends Controller
 {
     public function index(): View
     {
-        $experience = Experience::get();
-        return view ('experience.index')->with('experience', $experience);
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin'){
+                $experience = Experience::get();
+            return view ('experience.index')->with('experience', $experience);
+            }
+            else{
+                abort(404);
+            }
+        }
+        
     }
 
   
     public function create(): View
     {
-        if(auth()->user()->role =="spectator"){
-            return abort(403, 'Denied Access');
+        if(empty(auth()->user()->role)){
+            abort(404);
         }
-        return view('experience.create');
+        else{
+            if(auth()->user()->role == 'admin'){
+                return view('experience.create');
+            }
+            else{
+                abort(404);
+            }
+        }
+ 
+        
     }
 
     public function store(Request $request)
@@ -37,10 +57,18 @@ class ExperienceController extends Controller
         $imagePath = $image->store('images', 'public');
         $data['image'] = $imagePath;
        }
-      
-        Experience::create($data);
-        
-        return redirect('experience')->with('flash_message', 'Information Added!');
+       if(empty(auth()->user()->role)){
+        abort(404);
+        }
+        else{
+        if(auth()->user()->role == 'admin'){
+            Experience::create($data);
+            return redirect('experience')->with('flash_message', 'Information Added!');
+        }
+        else{
+            abort(404);
+        }
+    }
        
     }
 
@@ -52,19 +80,37 @@ class ExperienceController extends Controller
 
     public function edit(string $id): View
     {
-        if(auth()->user()->role =="spectator"){
-            return abort(403, 'Denied Access');
+        if(empty(auth()->user()->role)){
+            abort(404);
         }
-        $experience = experience::find($id);
-        return view('experience.edit')->with('experience', $experience);
+        else{
+            if(auth()->user()->role == 'admin'){
+                $experience = experience::find($id);
+                return view('experience.edit')->with('experience', $experience);
+            }
+            else{
+                abort(404);
+            }
+        }
     }
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $experience = experience::find($id);
-        $input = $request->all();
-        $experience->update($input);
-        return redirect('experience')->with('flash_message', 'Information Updated!');  
+        if(empty(auth()->user()->role)){
+            abort(404);
+        }
+        else{
+            if(auth()->user()->role == 'admin'){
+                $experience = experience::find($id);
+                $input = $request->all();
+                $experience->update($input);
+                return redirect('experience')->with('flash_message', 'Information Updated!');
+            }
+            else{
+                abort(404);
+            }
+        }
+          
     }
 
     
